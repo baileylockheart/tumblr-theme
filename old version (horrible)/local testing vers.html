@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--
+    HELLOOOOOO💖💖💖 Ty for looking at my blog!! Here's everything I used to make the theme for it!
+        
+    https://www.tumblr.com/docs/en/custom_themes
+    https://dev.to/devggaurav/let-s-build-a-responsive-navbar-and-hamburger-menu-using-html-css-and-javascript-4gci
+    https://bychloethemes.tumblr.com/post/132019644774/how-to-make-a-faq-page-with-an-askbox
+    https://baileylockheart-websites.netlify.app/webmastery
+    https://all-icons.carrd.co
+    https://5ummit.tumblr.com/post/718051667312066560/mature-content-popup-hack
+    
+    Feel free to use whatever you want from this!! While I'm proud of it, I know it's a pretty simple theme, so build off of it as you please ^-^
+    
+-->
+<head>
+    <title>{Title} {block:TagPage}/ #{Tag}{/block:TagPage}{block:PostSummary} : {PostSummary}{/block:PostSummary}</title>
+
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light only"/>
+    <meta name="theme-color" content="var(--background)">
+    
+    <!--meta tags-->
+    <meta name="description" content="{MetaDescription}"/>
+    <meta property="og:site_name" content="Tumblr"/>
+    <meta property="og:title" content="{Title}"/>
+    <meta property="og:type" content="website" />
+    <meta property="og:description" content="{MetaDescription}"/>
+    <meta property="og:image" content="{PortraitURL-128}"/>
+    <meta property="og:image:height" content="800"/>
+    <meta property="og:url" content="{BlogURL}"/>
+    
+    <!--and the bird app bc they just have to be special-->
+    <meta name="twitter:title" content="{Title}" />
+    <meta name="twitter:image" content="{PortraitURL-128}">
+    <meta name="twitter:description" content="{MetaDescription}">
+    <meta property="twitter:card" content="summary_large_image"/>
+    
+    <link rel="canonical" href="{BlogURL}"/>
+    <link rel="icon" type="image/x-icon" href="{Favicon}">
+    <link href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:ital,wght@0,500;0,700;1,500&family=Alegreya:ital,wght@0,500;0,700;1,500&display=swap" rel="stylesheet">
+
+<style>
+:root{
+    --background:#FBC9FF;
+    --posts:#F7EBF7;
+    --text:#47324A;
+    --accent:#935ADB;
+    --accent2:#FBC9FF;
+    --accent3:#FFB5DA;
+    --accent4:#A3719B;
+    --borders:#47324A;
+    --icons:#F7EBF7;
+}
+
+body {
+    font-family: "Alegreya Sans", sans-serif;
+    font-size: 16px;
+    color: var(--text);
+    background-color: var(--background);
+    text-align: left;
+    line-height: 160%;
+    word-wrap: break-word;
+    letter-spacing: 0.2px;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    opacity: 1.0;
+    -webkit-transition: 2s opacity;
+    -moz-transition: 2s opacity;
+    -ms-transition: 2s opacity;
+    -o-transition: 2s opacity;
+    transition: 2s opacity;
+}
+@viewport {
+    width: device-width ;
+    zoom: 1.0 ;
+  } 
+
+@-ms-viewport {
+    width: device-width ;
+  }
+/*CONTAINERS???? KINDA??????*/
+#posts{
+    margin-left: 180px;
+    margin-top:-15px;
+    max-width:95vw
+    }
+.post{
+    text-align:left;
+    float:left;
+    margin-left:auto;
+    margin-right:auto;
+    background-color: var(--posts);
+    border: solid 2px var(--borders);
+    border-radius: 10px;
+    padding:15px;
+    margin-bottom:10px;
+    max-width:95vw;
+    width:95%;
+}
+#footer{
+    margin-left: 180px;
+    text-align:center;
+    float:left;
+    background-color: var(--posts);
+    border: solid 2px var(--borders);
+    border-radius: 10px;
+    padding:15px;
+    margin-bottom:10px;
+    max-width:95vw;
+    width:81.5%;
+}
+.question{
+    margin-top:-15px;
+    margin-bottom:5px;
+    background-color:var(--accent3);
+    padding: 1px 8px;
+    border-radius:10px;
+}
+.notesandtags{
+    background-color:var(--accent);
+    color:var(--posts);
+    padding:1px 8px;
+    border-radius:10px;
+}
+.notesandtags a:hover{
+    color: var(--accent3); 
+    -webkit-transition: 0.6s ease;
+    transition: 0.6s ease
+}
+/*TEXT*/
+p{
+    text-align: left;
+}
+h1, h2, h3, h4, h5{
+    text-align: left;
+    font-family: "Alegreya", serif;
+    color: var(--text);
+    letter-spacing: 2px;
+    line-height: 160%;
+    font-weight: bold;
+}
+a{
+    color:inherit;
+    font-size: inherit;
+    text-decoration: underline;
+}
+a:hover{
+    color: var(--accent4); 
+    -webkit-transition: 0.6s ease;
+    transition: 0.6s ease
+}
+/*NAVBAR*/
+
+.navbar {
+  /*look*/
+  background-color: var(--accent);
+  border: solid var(--borders) 2px;
+  border-radius: 10px;
+  /*text*/
+  text-align:center;
+  line-height:.95;
+  font-weight:400;
+  /*placement*/
+  z-index:10000;
+  position:fixed;
+  float:left;
+  max-height:100vw;
+  height:90%;
+  width:120px;
+  padding-top:15px;
+  padding-left:0px;
+  padding-right:35px;
+  padding-bottom:15px;
+  margin:10px;
+  margin-bottom:15px
+}
+.hamburger {
+    display: none;
+}
+li{
+    list-style: none;
+}
+.bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    background-color: var(--accent3);
+}
+.nav-menu{
+    display: block;
+}
+
+.nav-item {
+    margin-bottom: 2.25rem;
+}
+
+.nav-link{
+    font-size: 1.25rem;
+    font-weight: 400;
+    color:var(--posts);
+    text-decoration: none;
+}
+.nav-link:hover{
+    -webkit-transition:color .6s;
+    transition:color .6s;
+    color:var(--accent3);
+}
+
+/*FUN STUFFFFFF*/
+img {
+    position:relative;
+    margin: 0;
+    display: block;
+    height: auto;
+    width: 100%;
+    border-radius: 10px;
+}
+#pfp{
+    width:75px;
+    border-radius: 200%;
+    margin-left: 42px;
+    margin-right:auto;
+    margin-bottom:25px;
+}
+#description{
+    text-align: center;
+    color:var(--icons);
+    font-size:14px;
+    margin-left:10px;
+    margin-right:-25px;
+}
+iframe {
+    width: 100%;
+}
+svg{
+    min-width: 16px;
+    width: 1.25rem;
+    margin-top:-70px;
+    margin-bottom:-50px;
+    fill:var(--posts)
+}
+textarea{
+    font-family: "Alegreya Sans", sans-serif;
+    font-size: 10px;
+    color: var(--text);
+    border:solid 2px var(--borders);
+    background-color: var(--accent2);
+    height:12px;
+    width: 65%;
+}
+/*Little tumblr-specific thingies*/
+.community-label-cover__wrapper {
+    display: none
+}
+ol.notes{
+     background-color:var(--accent3);
+     padding:15px;
+     border-radius:10px; 
+ }
+ ol.notes li.note img.avatar {
+    vertical-align: -4px;
+    margin-right: 10px;
+    width: 16px;
+    height: 16px;
+}
+ol.notes li.note a:hover{
+    color: var(--accent); 
+    -webkit-transition: 0.6s ease;
+    transition: 0.6s ease
+}
+/*Resizing 🤢*/
+
+@media (max-width: 1024px) {
+    #footer, .post{
+        max-width:72vw;
+    }
+    .nav-link{
+        font-size: 1.25rem;
+        font-weight: 400;
+    }
+   
+}
+
+@media (max-width: 768px) {
+    .post{
+        float:none;
+        max-width:84vw;
+    }
+    #posts{
+        margin-top: 50px;
+        margin-left: auto;
+        margin-right: auto;
+    } 
+    #pfp{
+        display:none
+    }   
+    #description{
+        display:none
+    }
+    #footer{
+        float:none;
+        max-width:84vw;
+        width:90%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .navbar {
+        justify-content: space-between;
+        width: 10px;
+        background-color: var(--accent);
+        padding-top:0.25rem;
+        padding-bottom:0.25rem;
+        padding-left:0.8rem;
+        padding-right:1.75rem;
+        border-radius: 5px;
+        border:solid 2px var(--borders);
+        height:auto;
+    }
+    .nav-menu {
+        z-index: 10000000;
+        display: inline-flex;
+        position: fixed;
+        left: -100%;
+        top: 6.5rem;
+        flex-direction: column;
+        background-color: var(--accent);
+        width: 165px;
+        border-radius: 10px;
+        text-align: center;
+        transition: 0.5s;
+        box-shadow:
+            0 10px 27px var(--borders);
+    }
+
+    .nav-menu.active {
+        left: -5%;
+    }
+
+    .nav-item {
+    margin-top: 1rem;
+    margin-bottom:1rem
+    }
+    .hamburger {
+        display: block;
+        cursor: pointer;
+    }
+    .hamburger.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .hamburger.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+
+
+}
+</style>
+</head>
+<body> 
+   
+<div>
+    <nav class="navbar">
+        <img id="pfp" src="{PortraitURL-128}">
+        {block:Description}
+            <p id="description">{Description}</p>
+        {/block:Description}
+
+        <ul class="nav-menu">
+            <li class="nav-item">
+                <a href="/" class="nav-link">Home</a>
+            </li>
+            <li class="nav-item">
+                <a href="/asks" class="nav-link">Asks</a>
+            </li>
+            <li class="nav-item">
+                <a href="/submits" class="nav-link">Submit</a>
+            </li>
+            <li class="nav-item">
+                <a href="/archive" class="nav-link">Archive</a>
+            </li>
+            {block:ifWebsite}
+            <li class="nav-item">
+                <a href="{text:Website}" target="_blank" class="nav-link">Website</a>
+            </li>{/block:ifWebsite}
+            <li class="nav-item">
+                {block:ifTikTok}
+                <a href="{text:TikTok}" target="_blank"><svg><use xlink:href="#icon-tiktok"></use></svg></a>&nbsp;
+                {/block:ifTikTok}
+                {block:ifInstagram}
+                <a href="{text:Instagram}" target="_blank"><svg><use xlink:href="#icon-insta"></use></svg></a>&nbsp;
+                {/block:ifInstagram}
+                {block:ifYouTube}
+                <a href="{text:YouTube}" target="_blank"><svg><use xlink:href="#icon-youtube"></use></svg></a>&nbsp;
+                {/block:ifYouTube}
+                {block:ifSpotify}
+                <a href="{text:Spotify}" target="_blank"><svg><use xlink:href="#icon-spotify"></use></svg></a>&nbsp;
+                {/block:ifSpotify}
+                {block:ifThreads}
+                <a href="{text:Threads}" target="_blank"><svg><use xlink:href="#icon-threads"></use></svg></a>&nbsp;
+                {block:ifThreads}
+                {block:ifTwitter}
+                <a href="{text:Twitter}" target="_blank"><svg><use xlink:href="#icon-twitter"></use></svg></a>&nbsp;
+                {block:ifTwitter}
+            </li>
+        </ul>
+        <div class="hamburger">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+    </nav>
+</div><br>
+        <div id="posts">
+        {block:Posts}
+
+            <!--NPF & Legacy Text Posts-->
+            {block:Text}
+                <div class="post text">
+                    {block:Title}
+                        <h3><a href="{Permalink}">{Title}</a></h3>
+                    {/block:Title}
+                    <!--Original Post-->
+                    {block:NotReblog}
+                        {Body}
+                    {/block:NotReblog}
+                    <!--Post is a reblog-->
+                    {block:RebloggedFrom}
+                        <div class="reblog-list">
+                            {block:Reblogs}
+                                <div class="reblog-header">
+                                    {block:IsActive}
+                                        <a href="{Permalink}">{Username}</a>
+                                    {/block:IsActive}
+                                    {block:IsDeactivated}
+                                        <span>{Username}</span>
+                                    {/block:IsDeactivated}
+                                </div>
+                                <div class="reblog-body">{Body}</div>
+                            {/block:Reblogs}
+                        </div>
+                    {/block:RebloggedFrom}
+                    {block:Date}
+                        <div class="notesandtags">
+                            <div>Posted on {Month} {DayOfMonth}{DayOfMonthSuffix}{block:NoteCount}  with {NoteCountWithLabel}
+                            {/block:NoteCount}{/block:Date}
+                            </div>
+                            {block:HasTags}
+                            <div>{block:Tags}<a href="{TagURL}">#{Tag} </a>{/block:Tags}
+                            </div>{/block:HasTags}
+                            <div class="copylink">Copy Link:&nbsp;<textarea>{Permalink}</textarea></div>
+                        </div>
+                </div>
+            {/block:Text}
+
+            <!--All Answer posts including NPF-->
+            {block:Answer}
+                <div class="post answer">
+                    <p><strong>{Asker}</strong>:</p>
+                    <div class="question">{Question}</div>
+                    {block:Answerer}
+                        {Answer}
+                    {/block:Answerer}
+                    <!--Original Post-->
+                    {block:NotReblog}
+                        {Replies}
+                    {/block:NotReblog}
+                    <!--Post is a reblog-->
+                    {block:RebloggedFrom}
+                        <div class="reblog-list">
+                            {block:Reblogs}
+                                <div class="reblog-header">
+                                    {block:IsActive}
+                                        <a href="{Permalink}">{Username}</a>
+                                    {/block:IsActive}
+                                    {block:IsDeactivated}
+                                        <span>{Username}</span>
+                                    {/block:IsDeactivated}
+                                </div>
+                                <div class="reblog-body">{Body}</div>
+                            {/block:Reblogs}
+                        </div>
+                    {/block:RebloggedFrom}
+                    {block:Date}
+                        <div class="notesandtags">
+                            <div>Posted on {Month} {DayOfMonth}{DayOfMonthSuffix}{block:NoteCount}  with {NoteCountWithLabel}
+                            {/block:NoteCount}{/block:Date}
+                            </div>
+                            {block:HasTags}
+                            <div>{block:Tags}<a href="{TagURL}">#{Tag} </a>{/block:Tags}
+                            </div>{/block:HasTags}
+                            <div class="copylink">Copy Link:&nbsp;<textarea>{Permalink}</textarea></div>
+                        </div>
+                </div>
+            {/block:Answer}
+
+            {block:Submission}
+            <div class="post submission">
+                    <p><strong>{Submitter}</strong>:</p>
+                    <!--Original Post-->
+                    {block:NotReblog}
+                        {Body}
+                    {/block:NotReblog}
+                    <!--Post is a reblog-->
+                    {block:RebloggedFrom}
+                        <div class="reblog-list">
+                            {block:Reblogs}
+                                <div class="reblog-header">
+                                    {block:IsActive}
+                                        <a href="{Permalink}">{Username}</a>
+                                    {/block:IsActive}
+                                    {block:IsDeactivated}
+                                        <span>{Username}</span>
+                                    {/block:IsDeactivated}
+                                </div>
+                                <div class="reblog-body">{Body}</div>
+                            {/block:Reblogs}
+                        </div>
+                    {/block:RebloggedFrom}
+                    {block:Date}
+                        <div class="notesandtags">
+                            <div>Posted on {Month} {DayOfMonth}{DayOfMonthSuffix}{block:NoteCount}  with {NoteCountWithLabel}
+                            {/block:NoteCount}{/block:Date}
+                            </div>
+                            {block:HasTags}
+                            <div>{block:Tags}<a href="{TagURL}">#{Tag} </a>{/block:Tags}
+                            </div>{/block:HasTags}
+                            <div class="copylink">Copy Link:&nbsp;<textarea>{Permalink}</textarea></div>
+                        </div>
+                    </div>
+            {/block:Submission}
+
+            <!--Legacy Photo Posts-->
+            {block:Photo}
+                <div class="post photo">
+                    <img src="{PhotoURL-500}" alt="{PhotoAlt}"/>
+                    <!--Original Post-->
+                    {block:NotReblog}
+                        {Caption}
+                    {/block:NotReblog}
+                    <!--Post is a reblog-->
+                    {block:RebloggedFrom}
+                        <div class="reblog-list">
+                            {block:Reblogs}
+                                <div class="reblog-header">
+                                    {block:IsActive}
+                                        <a href="{Permalink}">{Username}</a>
+                                    {/block:IsActive}
+                                    {block:IsDeactivated}
+                                        <span>{Username}</span>
+                                    {/block:IsDeactivated}
+                                </div>
+                                <div class="reblog-body">{Body}</div>
+                            {/block:Reblogs}
+                        </div>
+                    {/block:RebloggedFrom}
+                    {block:Date}
+                        <div class="notesandtags">
+                            <div>Posted on {Month} {DayOfMonth}{DayOfMonthSuffix}{block:NoteCount}  with {NoteCountWithLabel}
+                            {/block:NoteCount}{/block:Date}
+                            </div>
+                            {block:HasTags}
+                            <div>{block:Tags}<a href="{TagURL}">#{Tag} </a>{/block:Tags}
+                            </div>{/block:HasTags}
+                            <div class="copylink">Copy Link:&nbsp;<textarea>{Permalink}</textarea></div>
+                        </div>
+                </div>
+            {/block:Photo}
+
+            <!--Legacy Photoset Posts-->
+            {block:Photoset}
+                <div class="post photoset">
+                    {Photoset}
+                    <!--Original Post-->
+                    {block:NotReblog}
+                        {Caption}
+                    {/block:NotReblog}
+                    <!--Post is a reblog-->
+                    {block:RebloggedFrom}
+                        <div class="reblog-header">
+                            {block:Reblogs}
+                                <div class="reblog-header">
+                                    {block:IsActive}
+                                        <a href="{Permalink}">{Username}</a>
+                                    {/block:IsActive}
+                                    {block:IsDeactivated}
+                                        <span>{Username}</span>
+                                    {/block:IsDeactivated}
+                                </div>
+                                <div class="reblog-body">{Body}</div>
+                            {/block:Reblogs}
+                        </div>
+                    {/block:RebloggedFrom}
+                    {block:Date}
+                        <div class="notesandtags">
+                            <div>Posted on {Month} {DayOfMonth}{DayOfMonthSuffix}{block:NoteCount}  with {NoteCountWithLabel}
+                            {/block:NoteCount}{/block:Date}
+                            </div>
+                            {block:HasTags}
+                            <div>{block:Tags}<a href="{TagURL}">#{Tag} </a>{/block:Tags}
+                            </div>{/block:HasTags}
+                            <div class="copylink">Copy Link:&nbsp;<textarea>{Permalink}</textarea></div>
+                        </div>
+                </div>
+            {/block:Photoset}
+
+            <!--Legacy Quote Posts-->
+            {block:Quote}
+                <div class="post quote">
+                    "{Quote}"
+                    {block:Source}
+                        <div class="source">{Source}</div>
+                    {/block:Source}
+                    {block:Date}
+                        <div class="notesandtags">
+                            <div>Posted on {Month} {DayOfMonth}{DayOfMonthSuffix}{block:NoteCount}  with {NoteCountWithLabel}
+                            {/block:NoteCount}{/block:Date}
+                            </div>
+                            {block:HasTags}
+                            <div>{block:Tags}<a href="{TagURL}">#{Tag} </a>{/block:Tags}
+                            </div>{/block:HasTags}
+                            <div class="copylink">Copy Link:&nbsp;<textarea>{Permalink}</textarea></div>
+                        </div>
+                </div>
+            {/block:Quote}
+
+            <!--Legacy Link Posts-->
+            {block:Link}
+                <div class="post link">
+                    <a href="{URL}" class="link" {Target}>{Name}</a>
+                    <!--Original Post-->
+                    {block:NotReblog}
+                        {Description}
+                    {/block:NotReblog}
+                    <!--Post is a reblog-->
+                    {block:RebloggedFrom}
+                        <div class="reblog-list">
+                            {block:Reblogs}
+                            <div class="reblog-header">
+                                {block:IsActive}
+                                    <a href="{Permalink}">{Username}</a>
+                                {/block:IsActive}
+                                {block:IsDeactivated}
+                                    <span>{Username}</span>
+                                {/block:IsDeactivated}
+                            </div>
+                            <div class="reblog-body">{Body}</div>
+                            {/block:Reblogs}
+                        </div>
+                    {/block:RebloggedFrom}
+                    {block:Date}
+                        <div class="notesandtags">
+                            <div>Posted on {Month} {DayOfMonth}{DayOfMonthSuffix}{block:NoteCount}  with {NoteCountWithLabel}
+                            {/block:NoteCount}{/block:Date}
+                            </div>
+                            {block:HasTags}
+                            <div>{block:Tags}<a href="{TagURL}">#{Tag} </a>{/block:Tags}
+                            </div>{/block:HasTags}
+                            <div class="copylink">Copy Link:&nbsp;<textarea>{Permalink}</textarea></div>
+                        </div>
+                </div>
+            {/block:Link}
+
+            <!--Legacy Chat Posts-->
+            {block:Chat}
+                <div class="post chat">
+                    {block:Title}
+                        <h3><a href="{Permalink}">{Title}</a></h3>
+                    {/block:Title}
+
+                    <ul class="chat">
+                        {block:Lines}
+                            <li class="{Alt} user_{UserNumber}">
+                                {block:Label}
+                                    <span class="label">{Label}</span>
+                                {/block:Label}{Line}
+                            </li>
+                        {/block:Lines}
+                    </ul>
+                    {block:Date}
+                        <div class="notesandtags">
+                            <div>Posted on {Month} {DayOfMonth}{DayOfMonthSuffix}{block:NoteCount}  with {NoteCountWithLabel}
+                            {/block:NoteCount}{/block:Date}
+                            </div>
+                            {block:HasTags}
+                            <div>{block:Tags}<a href="{TagURL}">#{Tag} </a>{/block:Tags}
+                            </div>{/block:HasTags}
+                            <div class="copylink">Copy Link:&nbsp;<textarea>{Permalink}</textarea></div>
+                        </div>
+                </div>
+            {/block:Chat}
+
+            <!--Legacy Video Posts-->
+            {block:Video}
+                <div class="post video">
+                    {Video-700}
+                    <!--Original Post-->
+                    {block:NotReblog}
+                        {Description}
+                    {/block:NotReblog}
+                    <!--Post is a reblog-->
+                    {block:RebloggedFrom}
+                        <div class="reblog-list">
+                            {block:Reblogs}
+                                <div class="reblog-header">
+                                    {block:IsActive}
+                                        <a href="{Permalink}">{Username}</a>
+                                    {/block:IsActive}
+                                    {block:IsDeactivated}
+                                        span>{Username}</span>
+                                    {/block:IsDeactivated}
+                                </div>
+                                <div class="reblog-body">{Body}</div>
+                            {/block:Reblogs}
+                        </div>
+                    {/block:RebloggedFrom}
+                    {block:Date}
+                        <div class="notesandtags">
+                            <div>Posted on {Month} {DayOfMonth}{DayOfMonthSuffix}{block:NoteCount}  with {NoteCountWithLabel}
+                            {/block:NoteCount}{/block:Date}
+                            </div>
+                            {block:HasTags}
+                            <div>{block:Tags}<a href="{TagURL}">#{Tag} </a>{/block:Tags}
+                            </div>{/block:HasTags}
+                            <div class="copylink">Copy Link:&nbsp;<textarea>{Permalink}</textarea></div>
+                        </div>
+                </div>
+            {/block:Video}
+
+            <!--Legacy Audio Posts-->
+            {block:Audio}
+                <div class="post audio">
+                    {AudioEmbed}
+                    <!--Original Post-->
+                    {block:NotReblog}
+                        {Description}
+                    {/block:NotReblog}
+                    <!--Post is a reblog-->
+                    {block:RebloggedFrom}
+                        <div class="reblog-list">
+                            {block:Reblogs}
+                                <div class="reblog-header">
+                                    {block:IsActive}
+                                        <a href="{Permalink}">{Username}</a>
+                                    {/block:IsActive}
+                                    {block:IsDeactivated}
+                                        <span>{Username}</span>
+                                    {/block:IsDeactivated}
+                                </div>
+                                <div class="reblog-body">{Body}</div>
+                            {/block:Reblogs}
+                        </div>
+                    {/block:RebloggedFrom}
+                    <div class="notesandtags">
+                        <div>Posted on {Month} {DayOfMonth}{DayOfMonthSuffix}{block:NoteCount}  with {NoteCountWithLabel}
+                        {/block:NoteCount}{/block:Date}
+                        </div>
+                        {block:HasTags}
+                        <div>{block:Tags}<a href="{TagURL}">#{Tag} </a>{/block:Tags}
+                        </div>{/block:HasTags}
+                        <div class="copylink">Copy Link:&nbsp;<textarea>{Permalink}</textarea></div>
+                    </div>
+                </div>
+            {/block:Audio}
+            {block:PermalinkPage}
+            <div class="post">{PostNotes}</div>
+            {/block:PermalinkPage}
+        {/block:Posts}
+        </div>
+
+        <div id="footer">
+            {block:PreviousPage}
+                <a href="{PreviousPage}">&larr; Previous</a> | 
+            {/block:PreviousPage}
+                <a href="/archive">Archive</a>
+            {block:NextPage}
+                 | <a href="{NextPage}">Next &rarr;</a>
+            {/block:NextPage}
+        </div>
+
+<script>
+    const hamburger = document.querySelector(".hamburger");
+const navMenu = document.querySelector(".nav-menu");
+
+hamburger.addEventListener("click", mobileMenu);
+
+function mobileMenu() {
+    hamburger.classList.toggle("active");
+    navMenu.classList.toggle("active");
+}
+const navLink = document.querySelectorAll(".nav-link");
+
+navLink.forEach(n => n.addEventListener("click", closeMenu));
+
+function closeMenu() {
+    hamburger.classList.remove("active");
+    navMenu.classList.remove("active");
+}
+</script>
+
+
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 40 40" display="none" style="min-width: 16px;width: 1.25rem;margin-top:-67px;margin-bottom:-67px;fill:var(--icons)">
+    <symbol id="icon-spotify" viewBox="0 0 40 40"><path d="M26.9,26.3c0-0.4-0.2-0.8-0.6-1c-2.6-1.5-5.6-2.3-9-2.3c-1.8,0-3.7,0.2-5.8,0.7c-0.6,0.1-0.8,0.5-0.8,1 c0,0.3,0.1,0.5,0.3,0.7c0.2,0.2,0.4,0.3,0.7,0.3c0.1,0,0.3-0.1,0.7-0.2c1.8-0.4,3.4-0.5,4.9-0.5c3,0,5.7,0.7,8,2.1 c0.3,0.1,0.5,0.2,0.7,0.2c0.3,0,0.5-0.1,0.7-0.3C26.8,26.8,26.9,26.6,26.9,26.3L26.9,26.3z M28.8,22c0-0.5-0.2-0.9-0.7-1.2 c-3.2-1.9-6.8-2.8-11-2.8c-2,0-4.1,0.3-6.1,0.8c-0.6,0.2-1,0.6-1,1.3c0,0.3,0.1,0.6,0.4,0.9c0.2,0.2,0.5,0.4,0.9,0.4 c0.1,0,0.3-0.1,0.7-0.2c1.6-0.4,3.3-0.7,5-0.7c3.7,0,7,0.8,9.8,2.5c0.3,0.2,0.6,0.3,0.8,0.3c0.3,0,0.6-0.1,0.9-0.4 C28.7,22.6,28.8,22.3,28.8,22L28.8,22z M31,17c0-0.6-0.3-1.1-0.8-1.4c-1.7-1-3.6-1.7-5.9-2.2c-2.2-0.5-4.5-0.8-6.9-0.8 c-2.7,0-5.2,0.3-7.3,0.9c-0.3,0.1-0.6,0.3-0.8,0.5c-0.2,0.2-0.3,0.6-0.3,1c0,0.4,0.1,0.8,0.4,1c0.3,0.3,0.6,0.4,1,0.4 c0.1,0,0.4-0.1,0.8-0.2c1.8-0.5,3.8-0.7,6.2-0.7c2.1,0,4.2,0.2,6.2,0.7c2,0.5,3.7,1.1,5.1,1.9c0.3,0.2,0.5,0.2,0.8,0.2 c0.4,0,0.7-0.1,1-0.4C30.8,17.8,31,17.4,31,17L31,17z M35.1,20c0,2.8-0.7,5.4-2.1,7.7c-1.4,2.4-3.3,4.2-5.6,5.6 c-2.4,1.4-4.9,2.1-7.7,2.1c-2.8,0-5.4-0.7-7.7-2.1c-2.4-1.4-4.2-3.3-5.6-5.6S4.2,22.8,4.2,20s0.7-5.4,2.1-7.7S9.5,8,11.9,6.6 s4.9-2.1,7.7-2.1c2.8,0,5.4,0.7,7.7,2.1s4.2,3.3,5.6,5.6C34.4,14.6,35.1,17.2,35.1,20z"/></symbol>
+    <symbol id="icon-youtube" viewBox="0 0 40 40"><path d="M37.6,27.1c0,0-0.3,2.4-1.4,3.5c-1.4,1.4-2.9,1.4-3.6,1.5c-5,0.4-12.4,0.4-12.4,0.4s-9.2-0.1-12.1-0.4 c-0.8-0.1-2.6-0.1-3.9-1.5c-1.1-1.1-1.4-3.5-1.4-3.5s-0.4-2.9-0.4-5.7v-2.7c0-2.9,0.4-5.7,0.4-5.7s0.3-2.4,1.4-3.5 C5.5,8,7,8,7.7,7.9c5-0.4,12.4-0.4,12.4-0.4h0c0,0,7.5,0,12.4,0.4C33.3,8,34.8,8,36.2,9.4c1.1,1.1,1.4,3.5,1.4,3.5s0.4,2.9,0.4,5.7 v2.7C37.9,24.2,37.6,27.1,37.6,27.1z M16.5,14.6l0,9.9l9.6-5L16.5,14.6z" /></symbol>
+    <symbol id="icon-tiktok" viewBox="0 0 40 40"><path d="M36.1,11.7v5c-3.3,0-6.3-1-8.8-2.8v12.9c0,6.5-5.2,11.7-11.7,11.7c-2.4,0-4.6-0.7-6.5-2c0,0,0,0,0,0 c-3.1-2.1-5.2-5.7-5.2-9.7c0-6.5,5.2-11.7,11.7-11.7c0.5,0,1.1,0,1.6,0.1v1.4c0,0,0,0,0,0v5c-0.5-0.2-1.1-0.3-1.6-0.3 c-2.9,0-5.3,2.4-5.3,5.4c0,2.1,1.2,3.9,2.9,4.8c0.7,0.4,1.5,0.6,2.4,0.6c2.9,0,5.3-2.4,5.3-5.3V1.5h6.3v0.8c0,0.2,0.1,0.5,0.1,0.7 c0.4,2.5,1.9,4.7,4,6c0,0,0.1,0.1,0.1,0.1c0,0-0.1-0.1-0.1-0.1c1.4,0.9,3,1.3,4.7,1.3V11.7"/></symbol>
+    <symbol id="icon-insta" viewBox="0 0 40 40"><path d="M20,7c4.2,0,4.7,0,6.3,0.1c1.5,0.1,2.3,0.3,3,0.5C30,8,30.5,8.3,31.1,8.9c0.5,0.5,0.9,1.1,1.2,1.8c0.2,0.5,0.5,1.4,0.5,3 C33,15.3,33,15.8,33,20s0,4.7-0.1,6.3c-0.1,1.5-0.3,2.3-0.5,3c-0.3,0.7-0.6,1.2-1.2,1.8c-0.5,0.5-1.1,0.9-1.8,1.2 c-0.5,0.2-1.4,0.5-3,0.5C24.7,33,24.2,33,20,33s-4.7,0-6.3-0.1c-1.5-0.1-2.3-0.3-3-0.5C10,32,9.5,31.7,8.9,31.1 C8.4,30.6,8,30,7.7,29.3c-0.2-0.5-0.5-1.4-0.5-3C7,24.7,7,24.2,7,20s0-4.7,0.1-6.3c0.1-1.5,0.3-2.3,0.5-3C8,10,8.3,9.5,8.9,8.9 C9.4,8.4,10,8,10.7,7.7c0.5-0.2,1.4-0.5,3-0.5C15.3,7.1,15.8,7,20,7z M20,4.3c-4.3,0-4.8,0-6.5,0.1c-1.6,0-2.8,0.3-3.8,0.7 C8.7,5.5,7.8,6,6.9,6.9C6,7.8,5.5,8.7,5.1,9.7c-0.4,1-0.6,2.1-0.7,3.8c-0.1,1.7-0.1,2.2-0.1,6.5s0,4.8,0.1,6.5 c0,1.6,0.3,2.8,0.7,3.8c0.4,1,0.9,1.9,1.8,2.8c0.9,0.9,1.7,1.4,2.8,1.8c1,0.4,2.1,0.6,3.8,0.7c1.6,0.1,2.2,0.1,6.5,0.1 s4.8,0,6.5-0.1c1.6-0.1,2.9-0.3,3.8-0.7c1-0.4,1.9-0.9,2.8-1.8c0.9-0.9,1.4-1.7,1.8-2.8c0.4-1,0.6-2.1,0.7-3.8 c0.1-1.6,0.1-2.2,0.1-6.5s0-4.8-0.1-6.5c-0.1-1.6-0.3-2.9-0.7-3.8c-0.4-1-0.9-1.9-1.8-2.8c-0.9-0.9-1.7-1.4-2.8-1.8 c-1-0.4-2.1-0.6-3.8-0.7C24.8,4.3,24.3,4.3,20,4.3L20,4.3L20,4.3z"/><path d="M20,11.9c-4.5,0-8.1,3.7-8.1,8.1s3.7,8.1,8.1,8.1s8.1-3.7,8.1-8.1S24.5,11.9,20,11.9z M20,25.2c-2.9,0-5.2-2.3-5.2-5.2 s2.3-5.2,5.2-5.2s5.2,2.3,5.2,5.2S22.9,25.2,20,25.2z"/><path d="M30.6,11.6c0,1-0.8,1.9-1.9,1.9c-1,0-1.9-0.8-1.9-1.9s0.8-1.9,1.9-1.9C29.8,9.7,30.6,10.5,30.6,11.6z"/></symbol>
+    <symbol id="icon-threads" viewBox="0 0 40 40"><path d="M36.3,12.5c-0.4-1.3-0.9-2.6-1.6-3.9c-1.4-2.6-3.4-4.7-6.1-6.1c-1.8-1-3.8-1.6-5.9-1.8 c-3.3-0.4-6.5-0.2-9.6,0.9c-2.7,1-4.9,2.6-6.7,4.9c-1.4,1.9-2.3,3.9-2.9,6.2c-0.7,2.4-0.9,4.9-0.9,7.5c0,0.8,0,1.6,0.1,2.5 c0.1,1.7,0.4,3.4,0.9,5c0.3,1,0.6,1.9,1,2.8c1,2.1,2.3,3.9,4,5.4c2.2,1.9,4.8,2.9,7.7,3.4c1.7,0.3,3.3,0.3,5,0.2 c2.1-0.1,4.1-0.5,5.9-1.4c1.6-0.7,3-1.7,4.2-3c1.4-1.4,2.4-3,2.9-4.9c0.5-1.8,0.5-3.6,0-5.4c-0.4-1.6-1.3-3-2.4-4.1 c-1-0.9-2.1-1.7-3.3-2.2c-0.2-0.1-0.3-0.1-0.3-0.4c0-0.7-0.1-1.4-0.3-2.1c-0.3-1.5-1-2.9-2-4c-1.1-1.1-2.4-1.8-3.9-2.2 c-1.6-0.3-3.1-0.3-4.7,0.1c-1.9,0.5-3.5,1.5-4.6,3.2c-0.1,0.2-0.1,0.2,0.1,0.4c0.8,0.5,1.6,1.1,2.4,1.6c0.2,0.1,0.3,0.1,0.4-0.1 c0.4-0.5,0.9-0.9,1.4-1.3c1.1-0.6,2.2-0.7,3.4-0.6c0.9,0.1,1.8,0.3,2.6,0.9c1.1,0.8,1.5,1.9,1.8,3.2c0,0.2-0.1,0.2-0.2,0.2 c-1.7-0.2-3.4-0.3-5-0.1c-1.5,0.1-3,0.5-4.3,1.4c-1.7,1.1-2.8,2.6-3,4.6c-0.2,2.5,0.7,4.6,2.9,5.9c2.3,1.5,4.9,1.6,7.5,0.8 c2.2-0.7,3.7-2.2,4.7-4.3c0.5-1,0.7-2.1,0.9-3.2c0-0.2,0-0.3,0.2-0.1c0.8,0.5,1.5,1.1,2,2c1.2,2.1,1.2,4.3,0.1,6.4 c-1.1,2.2-3,3.7-5.3,4.5c-1.3,0.5-2.7,0.7-4.1,0.8c-2.5,0.2-4.9-0.1-7.3-1c-2.1-0.8-3.7-2.2-5-4c-1.2-1.7-1.9-3.7-2.3-5.7 C6,22.5,5.9,19.8,6.2,17C6.5,14.8,7,12.6,8,10.6c1.2-2.4,3-4.3,5.4-5.4c1.4-0.7,3-1,4.6-1.2c2.4-0.2,4.7-0.1,7,0.6 c1.8,0.6,3.4,1.5,4.7,2.8c1.7,1.7,2.7,3.7,3.4,5.9c0.1,0.2,0.1,0.3,0.3,0.2c0.9-0.3,1.9-0.5,2.8-0.7C36.3,12.8,36.4,12.7,36.3,12.5z M24.1,24.5c-0.7,1.3-1.8,2.1-3.3,2.3c-0.3,0-0.7,0.1-1,0.1c-1,0-2-0.2-2.9-0.8c-1.6-1.1-1.6-3.2-0.1-4.4c0.7-0.6,1.6-0.8,2.4-1 c1.8-0.3,3.6-0.2,5.4,0.1c0.3,0.1,0.4,0.2,0.3,0.5C24.8,22.3,24.6,23.4,24.1,24.5z"/></symbol>     
+    <symbol id="icon-twitter" viewBox="0 0 40 40"><path d="M36.3,10.2c-1,1.3-2.1,2.5-3.4,3.5c0,0.2,0,0.4,0,1c0,1.7-0.2,3.6-0.9,5.3c-0.6,1.7-1.2,3.5-2.4,5.1 c-1.1,1.5-2.3,3.1-3.7,4.3c-1.4,1.2-3.3,2.3-5.3,3c-2.1,0.8-4.2,1.2-6.6,1.2c-3.6,0-7-1-10.2-3c0.4,0,1.1,0.1,1.5,0.1 c3.1,0,5.9-1,8.2-2.9c-1.4,0-2.7-0.4-3.8-1.3c-1.2-1-1.9-2-2.2-3.3c0.4,0.1,1,0.1,1.2,0.1c0.6,0,1.2-0.1,1.7-0.2 c-1.4-0.3-2.7-1.1-3.7-2.3s-1.4-2.6-1.4-4.2v-0.1c1,0.6,2,0.9,3,0.9c-1-0.6-1.5-1.3-2.2-2.4c-0.6-1-0.9-2.1-0.9-3.3s0.3-2.3,1-3.4 c1.5,2.1,3.6,3.6,6,4.9s4.9,2,7.6,2.1c-0.1-0.6-0.1-1.1-0.1-1.4c0-1.8,0.8-3.5,2-4.7c1.2-1.2,2.9-2,4.7-2c2,0,3.6,0.8,4.8,2.1 c1.4-0.3,2.9-0.9,4.2-1.5c-0.4,1.5-1.4,2.7-2.9,3.6C33.8,11.2,35.1,10.9,36.3,10.2L36.3,10.2z"/></symbol>
+</svg>
+
+</body>
+</html>    

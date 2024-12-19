@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--
+    
+    HELLOOOOOO💖💖💖 Ty for looking at my blog!! Feel free to use whatever you want from this!! While I'm proud of it, I know it's a pretty simple theme, so build off of it as you please ^-^
+    
+-->
+<head>
+    <title>{Title} {block:TagPage}/ #{Tag}{/block:TagPage}{block:PostSummary} : {PostSummary}{/block:PostSummary}</title>
+
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light only"/>
+    <meta name="theme-color" content="{color:background}">
+    
+    <!--meta tags-->
+    <meta name="description" content="{MetaDescription}"/>
+    <meta property="og:site_name" content="Tumblr"/>
+    <meta property="og:title" content="{Title}"/>
+    <meta property="og:type" content="website" />
+    <meta property="og:description" content="{MetaDescription}"/>
+    <meta property="og:image" content="{PortraitURL-128}"/>
+    <meta property="og:image:height" content="800"/>
+    <meta property="og:url" content="{BlogURL}"/>
+    
+    <!--and the bird app bc they just have to be special-->
+    <meta name="twitter:title" content="{Title}" />
+    <meta name="twitter:image" content="{PortraitURL-128}">
+    <meta name="twitter:description" content="{MetaDescription}">
+    <meta property="twitter:card" content="summary_large_image"/>
+    
+    <link rel="canonical" href="{BlogURL}"/>
+    <link rel="icon" type="image/x-icon" href="{image:Favicon}">
+    <link href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:ital,wght@0,500;0,700;1,500&family=Alegreya:ital,wght@0,500;0,700;1,500&display=swap" rel="stylesheet">
+    
+    <script src="https://kit.fontawesome.com/24341c8af5.js" crossorigin="anonymous"></script>
+
+    <!--Okay, now the hard part, let's hope this works :')'-->
+    
+    <meta name="image:Favicon" content=""/>
+
+    <meta name="color:Background" content="#FBC9FF"/>
+    <meta name="color:Posts" content="#F7EBF7"/>
+    <meta name="color:Text" content="#47324A"/>
+    <meta name="color:Text 2" content="#F7EBF7"/>
+    <meta name="color:Accent" content="#935ADB"/>
+    <meta name="color:Accent 2" content="#FBC9FF"/>
+    <meta name="color:Accent 3" content="#FFB5DA"/>
+    <meta name="color:Accent 4" content="#A3719B"/>
+    <meta name="color:Borders" content="#47324A"/>
+    <meta name="color:Icons" content="#F7EBF7"/>
+
+    <meta name="select:Header Font" content="Alegreya" title="Alegreya"/>
+    <meta name="select:Body Font" content="Alegreya Sans" title="Alegreya Sans"/>
+
+        
+    <meta name="text:Website" content=""/>
+    <meta name="text:TikTok" content=""/>
+    <meta name="text:Instagram" content=""/>
+    <meta name="text:YouTube" content=""/>
+    <meta name="text:Spotify" content=""/>
+    <meta name="text:Threads" content=""/>
+<style>
+body {
+    font-family: {select:body font}, sans-serif;
+    font-size: 16px;
+    color: {color:text};
+    background-color: {color:background};
+    text-align: left;
+    line-height: 160%;
+    word-wrap: break-word;
+    letter-spacing: 0.2px;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    opacity: 1.0;
+    -webkit-transition: 2s opacity;
+    -moz-transition: 2s opacity;
+    -ms-transition: 2s opacity;
+    -o-transition: 2s opacity;
+    transition: 2s opacity;
+}
+body, html {
+    scrollbar-width: auto;
+    scrollbar-color: {color:accent 3} {color:posts};
+}
+@viewport {
+    width: device-width ;
+    zoom: 1.0 ;
+  } 
+
+@-ms-viewport {
+    width: device-width ;
+  }
+/*CONTAINERS???? KINDA??????*/
+#posts{
+    margin-left: 180px;
+    margin-top:-15px;
+    max-width:95vw
+    }
+.postcontent{
+    text-align:left;
+    float:left;
+    margin-left:auto;
+    margin-right:auto;
+    background-color: {color:posts};
+    border: solid 2px {color:borders};
+    border-radius: 10px;
+    padding:10px 15px;
+    margin-bottom:10px;
+    max-width:95vw;
+    width:95%;
+}
+footer{
+    text-align:center;
+    float:left;
+    background-color: {color:posts};
+    border: solid 2px {color:borders};
+    border-radius: 10px;
+    padding:15px;
+    margin: 0px auto 10px;
+    max-width:95vw;
+    width:95%;
+}
+blockquote {
+    border-left:2px solid {color:text};
+    padding:0px 10px;
+    margin: 0px 5px 0px 2px;
+}
+.question{
+    margin: -10px 10px 5px;
+    background-color:{color:accent 3};
+    padding: 1px 8px;
+    border-radius:10px;
+}
+.asker{
+    font-family:{select:header font};
+    margin: 5px 5px 0px;
+    padding-bottom:15px;
+}
+.notesandtags{
+    background-color:{color:accent};
+    color:{color:text 2};
+    padding:0px 8px;
+    border-radius:10px;
+    margin-top:5px;
+}
+.notesandtags a:hover{
+    color: {color:accent 3}; 
+    -webkit-transition: 0.6s ease;
+    transition: 0.6s ease
+}
+.titlecontainer {
+    background:{color:background}
+    top:0;
+    left:0;
+    right:0;
+    font-size:10pt;
+    border-top-right-radius:4px;
+    border-top-left-radius:4px;
+    border-bottom:2px dashed {color:borders};
+    color: {color:text};
+    margin: -10px -15px 5px;
+}
+.titlecontainer h2{
+    padding: 0px 10px;
+}
+.copylink{
+    margin-top:-10px;
+}
+
+/*TEXT*/
+h1, h2, h3, h4, h5{
+    font-family: {select:header font}, serif;
+    color: {color:text};
+    letter-spacing: 2px;
+    line-height: 100%;
+    font-weight: bold;
+}
+a{
+    color:inherit;
+    font-size: inherit;
+    text-decoration: underline;
+}
+a:hover, i:hover{
+    color: {color:accent 3}; 
+    -webkit-transition: 0.6s ease;
+    transition: 0.6s ease
+}
+/*NAVBAR*/
+
+.navbar {
+  /*look*/
+  background-color: {color:accent};
+  border: solid {color:borders} 2px;
+  border-radius: 10px;
+  /*text*/
+  text-align:center;
+  line-height:1;
+  font-weight:400;
+  /*placement*/
+  z-index:10000;
+  position:fixed;
+  float:left;
+  max-height:100vw;
+  height:90%;
+  width:130px;
+  padding: 15px 35px 15px 0px;
+  margin:10px 0px 15px 5px;
+}
+.hamburger {
+    display: none;
+}
+.navbar li{
+    list-style: none;
+    margin-left:-10px;
+    margin-right:-10px;
+}
+.bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    background-color: {color:accent 3};
+}
+.nav-menu{
+    display: block;
+}
+
+.nav-item {
+    margin-bottom: 1.5rem;
+}
+
+.nav-link{
+    font-size: 1.25rem;
+    font-weight: 400;
+    color:{color:text 2};
+    text-decoration: none;
+}
+.nav-link:hover{
+    -webkit-transition:color .6s;
+    transition:color .6s;
+    color:{color:accent 3};
+}
+i{
+    color:{color:icons};
+    font-size:1.15rem;
+    margin:5px 5px;
+}
+/*FUN STUFFFFFF*/
+img {
+    position:relative;
+    margin: 5px auto;
+    display: block;
+    height: auto;
+    max-width:300px;
+    border-radius: 10px;
+}
+
+#pfp{
+    width:75px;
+    border-radius: 200%;
+    margin-left: 42px;
+    margin-right:auto;
+    margin-bottom:25px;
+}
+#description{
+    text-align: center;
+    color:{color:text 2};
+    font-size:14px;
+    margin-left:10px;
+    margin-right:-25px;
+}
+iframe {
+    width: 100%;
+}
+
+textarea{
+    font-family: {select:body font}, sans-serif;
+    font-size: 9px;
+    color: {color:text};
+    border:solid 2px {color:borders};
+    background-color: {color:accent 2};
+    height:9px;
+    width: 65%;
+}
+#preloader {
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    display: flex;
+    position: fixed;
+    height: 100vh;
+    left: 0;
+    top: 0;
+    background:{color:Background Color}
+      url("https://lockheartlove.netlify.app/images/oval.svg")
+      no-repeat center;
+    z-index: 9999;
+}
+/*Little tumblr-specific thingies*/
+.community-label-cover__wrapper {
+    display: none
+}
+ ol.notes{
+     background-color:{color:accent 3};
+     padding:15px;
+     border-radius:10px; 
+ }
+ ol.notes li.note img.avatar {
+    vertical-align: -4px;
+    margin-right: 10px;
+    width: 16px;
+    height: 16px;
+}
+ol.notes li.note a:hover{
+    color: {color:accent}; 
+    -webkit-transition: 0.6s ease;
+    transition: 0.6s ease
+}
+/*audio stuffs*/
+#player{
+    margin: 5px;
+    margin-top: 10px;
+}
+audio{
+    border-radius: 700px;
+    height:26px;
+    max-width:460px;
+    background-color: {color:accent};
+    outline: solid black 2px;
+    filter: saturate(10) invert(12%);
+}
+audio::-webkit-media-controls-panel{
+    background-color:#a5b288;
+    filter: saturate(1) invert(100%)
+}
+#audiocontainer {
+    width:460px;
+    padding-left:20px;
+    padding-right:20px;
+    margin-top:10px;
+    margin-bottom:10px;
+}
+#audiodata {
+    max-width:225px;
+    float:left;
+    display:inline-block;
+    border:1px solid {color:borders};
+    border-radius:4px;
+    padding:3px;
+    background:{color:posts};
+}
+            
+.audioplayer {
+    float:right;
+    display:inline-block;
+    border:1px solid {color:borders};
+    border-radius:4px;
+    margin-top:25px;
+}
+.audiothingy{
+    background-color:{color:accent 2};
+}
+/*Resizing 🤢*/
+
+@media (max-width: 1024px) {
+    .post{
+        max-width:72vw;
+    }
+    .nav-link{
+        font-size: 1.25rem;
+        font-weight: 400;
+    }
+   
+}
+
+@media (max-width: 768px) {
+    .post{
+        float:none;
+        max-width:84vw;
+    }
+    #posts{
+        margin-top:2rem;
+        margin-left: auto;
+        margin-right: auto;
+    } 
+    #pfp{
+        display:none
+    }   
+    #description{
+        display:none
+    }
+    .navbar {
+        justify-content: space-between;
+        width: 10px;
+        background-color: {color:accent};
+        padding-top:0.25rem;
+        padding-bottom:0.25rem;
+        padding-left:0.8rem;
+        padding-right:1.75rem;
+        border-radius: 5px;
+        border:solid 2px {color:borders};
+        height:auto;
+    }
+    .nav-menu {
+        z-index: 10000000;
+        display: inline-flex;
+        position: fixed;
+        left: -100%;
+        top: 6.5rem;
+        flex-direction: column;
+        background-color: {color:accent};
+        width: 160px;
+        border-radius: 10px;
+        text-align: center;
+        transition: 0.5s;
+        box-shadow:
+            0 10px 27px {color:borders};
+    }
+
+    .nav-menu.active {
+        left: -5%;
+    }
+
+    .nav-item {
+    margin-top: 1rem;
+    }
+    .navbar li{
+        margin-left:20px;
+        margin-right:20px;
+    }
+    .hamburger {
+        display: block;
+        cursor: pointer;
+    }
+    .hamburger.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .hamburger.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+}
+{CustomCSS}
+</style>
+<div id="preloader"></div>
+</head>
+<body> 
+   
+<div>
+    <nav class="navbar">
+        <img id="pfp" src="{PortraitURL-128}">
+        {block:Description}
+            <p id="description">{Description}</p>
+        {/block:Description}
+        <ul class="nav-menu">
+            <li class="nav-item">
+                <a href="/" class="nav-link">Home</a>
+            </li>
+            <li class="nav-item">
+                <a href="/asks" class="nav-link">Asks</a>
+            </li>
+            <li class="nav-item">
+                <a href="/submits" class="nav-link">Submit</a>
+            </li>
+            <li class="nav-item">
+                <a href="/archive" class="nav-link">Archive</a>
+            </li>
+            <li class="nav-item">
+                <a href="/credits" class="nav-link">Credits</a>
+            </li>
+            {block:ifWebsite}
+            <li class="nav-item">
+                <a href="{text:Website}" target="_blank" class="nav-link">Website</a>
+            </li>{/block:ifWebsite}
+            <li class="nav-item">
+                {block:ifTikTok}
+                <a href="{text:TikTok}" target="_blank"><i class="fa-brands fa-tiktok"></i></a>&nbsp;
+                {/block:ifTikTok}
+                {block:ifInstagram}
+                <a href="{text:Instagram}" target="_blank"><i class="fa-brands fa-instagram"></i></a>&nbsp;
+                {/block:ifInstagram}
+                {block:ifYouTube}
+                <a href="{text:YouTube}" target="_blank"><i class="fa-brands fa-youtube"></i></a>&nbsp;
+                {/block:ifYouTube}
+                {block:ifSpotify}
+                <a href="{text:Spotify}" target="_blank"><i class="fa-brands fa-spotify"></i></a>&nbsp;
+                {/block:ifSpotify}
+                {block:ifThreads}
+                <a href="{text:Threads}" target="_blank"><i class="fa-brands fa-threads"></i></a>&nbsp;
+                {block:ifThreads}
+            </li>
+        </ul>
+        <div class="hamburger">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+    </nav>
+</div><br>
+     <div id="posts">
+         
+            {block:Posts}
+                <div id="post" class="postcontent">
+                
+                    {block:Text}
+                        {block:Title}
+                            <div class="titlecontainer">
+                                <h2>{Title}</h2>
+                            </div>
+                        {/block:Title}
+                        
+                        {block:RebloggedFrom}
+                            <div class="titlecontainer">
+                                <h2>Reblogged from <a href="{ReblogRootURL}">{ReblogRootName}</a></h2>
+                            </div>
+                            {/block:RebloggedFrom}
+                    {/block:Text}
+                    
+                    {block:Photo}
+                        {block:IndexPage}
+                            <a href="{Permalink}">
+                                <img class="photo" src="{PhotoURL-HighRes}" alt="{PhotoAlt}"/>
+                            </a>
+                        {/block:IndexPage}
+                        {block:PermalinkPage}
+                            <a href="{PhotoURL-HighRes}">
+                                <img class="photo" src="{PhotoURL-HighRes}" alt="{PhotoAlt}"/>
+                            </a>
+                        {/block:PermalinkPage}
+                    {/block:Photo}
+                    
+                    {block:Panorama}
+                        {LinkOpenTag}<img class="photo" src="{PhotoURL-Panorama}"/>{LinkCloseTag}
+                    {/block:Panorama}
+                    
+                    {block:Photoset}
+                        <div id="photoset" class="photo">{Photoset-500}</div>
+                    {/block:Photoset}
+                    
+                    {block:Quote}
+                        <div class="titlecontainer">
+                            <h2>{Quote}</h2>
+                        </div>
+                    {/block:Quote}
+                    
+                    {block:Link}
+                        <div class="titlecontainer">
+                            <a href="{URL}">{Name}</a> || {Host}
+                        </div>
+                    {/block:Link}
+                    
+                    {block:Chat}
+                        {block:Title}<div class="titlecontainer">
+                            <h2>{Title}</h2>
+                        </div>{/block:Title}
+                    {/block:Chat}
+                    
+                    {block:Video}
+                        <div class="photo">
+                            {VideoEmbed-500}
+                        </div>
+                    {/block:Video}
+                    
+                    {block:Audio}
+                    <div class="audiothingy">
+                        {block:AlbumArt}
+                            <img class="photo" src="{AlbumArtURL}">
+                        {/block:AlbumArt}
+                        <div id="audiocontainer">
+                            <table id="audiodata">
+                                {block:TrackName}
+                                    <tr>
+                                        <td>Track:</td>
+                                        <td class="adata">{TrackName}</td>
+                                    </tr>
+                                {/block:TrackName}
+                                {block:Artist}
+                                    <tr>
+                                        <td>Artist:</td>
+                                        <td class="adata">{Artist}</td>
+                                    </tr>
+                                {/block:Artist}
+                                {block:Album}
+                                    <tr>
+                                        <td>Album:</td>
+                                        <td class="adata">{Album}</td>
+                                    </tr>
+                                {/block:Album}
+                                {block:PlayCount}
+                                    <tr>
+                                        <td>Plays:</td>
+                                        <td class="adata">{PlayCount}</td>
+                                    </tr>
+                                {/block:PlayCount}
+                            </table>
+                            {block:AudioPlayer}
+                                <div class="audioplayer">
+                                    {AudioPlayer}
+                                </div>
+                            {/block:AudioPlayer}
+                            {block:AudioEmbed}
+                                <div class="audioplayer">
+                                    {AudioEmbed-250}
+                                </div>    
+                            {/block:AudioEmbed}
+                        </div>
+                    </div>
+                    {/block:Audio}
+                    
+                    {block:Answer}
+                        <div class="titlecontainer">
+                            <div class="asker"><h2>{Asker}:</h2></div>
+                            <div class="question">{Question}
+                            </div>
+                        </div>
+                    {/block:Answer}
+                    
+                    <div id="postbodycontainer">
+                        {block:Text}{Body}{/block:Text}
+                        {block:Photo}{Caption}{/block:Photo}
+                        {block:Panorama}{Caption}{/block:Panorama}
+                        {block:Photoset}{Caption}{/block:Photoset}
+                        {block:Quote}- {Source}{/block:Quote}
+                        {block:Link}{Description}{/block:Link}
+                        {block:Chat}
+                            <table id="chat">
+                                {block:Lines}<tr>
+                                    {block:Label}<td id="label">
+                                        {Label}
+                                    </td>{/block:Label}
+                                    <td id="line">
+                                        {Line}
+                                    </td>
+                                </tr>{/block:Lines}
+                            </table>
+                        {/block:Chat}
+                        {block:Video}{Caption}{/block:Video}
+                        {block:Audio}{Caption}{/block:Audio}
+                        {block:Answer}{Replies}{/block:Answer}
+                    </div>
+                    
+                    <div id="postfoot" class="notesandtags">
+                        <!--only the main page-->
+                        {block:IndexPage}
+                            <p class="postfootcontent">
+                                {block:NoteCount}{NoteCountWithLabel} | {/block:NoteCount}<a href="{Permalink}">{block:Date}{TimeAgo}{/block:Date}</a>
+                                
+                                {block:HasTags} 
+                                    | {block:Tags}<a href="{TagURL}">#{Tag}</a> {/block:Tags}
+                                {/block:HasTags}</p>
+                            <div class="copylink">Copy Link:&nbsp;<textarea>{Permalink}</textarea></div>
+                        {/block:IndexPage}
+                        
+                        <!--only the single post ones-->
+                        {block:PermalinkPage}
+                            <p class="postfootcontent">{block:RebloggedFrom}(Via <a href="{ReblogParentURL}">{ReblogParentName}</a> Source: <a href="{ReblogRootURL}">{ReblogRootName}</a>) {/block:RebloggedFrom} {block:NoteCount}{NoteCountWithLabel} | {/block:NoteCount}{block:Date}{12Hour}:{Minutes}{AmPm} {ShortMonth} {DayOfMonth} {Year}{/block:Date}
+                    {block:HasTags}
+                        | {block:Tags}<a href="{TagURL}">#{Tag}</a> {/block:Tags}
+                    {/block:HasTags}</p>{/block:PermalinkPage}
+                    </div>
+                
+                </div>
+                
+            {block:PostNotes}
+                <div id="notes" class="content">
+                    <h3>Notes</h3>
+                    {PostNotes-16}
+                </div>
+            {/block:PostNotes}
+            
+            {/block:Posts}
+     
+
+        <footer>
+            {block:PreviousPage}
+                <a href="{PreviousPage}">&larr; Previous</a> | 
+            {/block:PreviousPage}
+                <a href="/archive">Archive</a>
+            {block:NextPage}
+                 | <a href="{NextPage}">Next &rarr;</a>
+            {/block:NextPage}
+        </footer>
+</div>
+<script>
+    const hamburger = document.querySelector(".hamburger");
+const navMenu = document.querySelector(".nav-menu");
+
+hamburger.addEventListener("click", mobileMenu);
+
+function mobileMenu() {
+    hamburger.classList.toggle("active");
+    navMenu.classList.toggle("active");
+}
+const navLink = document.querySelectorAll(".nav-link");
+
+navLink.forEach(n => n.addEventListener("click", closeMenu));
+
+function closeMenu() {
+    hamburger.classList.remove("active");
+    navMenu.classList.remove("active");
+}
+var loader = document.getElementById("preloader");
+        window.addEventListener("load", function () {
+          loader.style.display = "none";
+        });
+</script>
+
+</body>
+</html>    
